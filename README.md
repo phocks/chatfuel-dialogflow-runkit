@@ -1,4 +1,4 @@
-# ChatFuel to DialogFlow Runkit Endpoint
+# ChatFuel to DialogFlow RunKit EndPoint
 Use this script to connect your ChatFuel bot to DialogFlow.
 
 ## Instructions
