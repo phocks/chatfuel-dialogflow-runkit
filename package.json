@@ -1,0 +1,12 @@
+{
+  "name": "chatfuel-dialogflow-integration",
+  "version": "0.0.1",
+  "dependencies": {
+    "apiai": "^4.0.3",
+    "apiai-promise": "^1.0.0",
+    "polly-js": "^1.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^9.4.6"
+  }
+}
