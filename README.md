@@ -10,3 +10,6 @@ Create an environment variable in RunKit called `API_AI_KEY` with your DialogFlo
 
 Then DialogFlow will send back text responses and any custom payloads as documented in the [ChatFuel JSON docs](http://docs.chatfuel.com/plugins/plugin-documentation/json-api).
 
+---
+
+See this [on RunKit](https://runkit.com/phocks/chatfuel-to-dialogflow-endpoint).
