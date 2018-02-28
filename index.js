@@ -1,6 +1,6 @@
 const URL = require("url"); // Built in library
 const API_AI = require("apiai-promise"); // DialogFlow v1 library (Promise version)
-const polly = require("polly-js");
+const polly = require("polly-js"); // A request retry library
 
 const { API_AI_KEY } = process.env; // Load key from secure environment variables
 const DEFAULT_APP = API_AI_KEY ? API_AI(API_AI_KEY) : null;
