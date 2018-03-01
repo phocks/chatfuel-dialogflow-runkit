@@ -5,7 +5,9 @@ const polly = require("polly-js"); // A request retry library
 const { API_AI_KEY } = process.env; // Load key from secure environment variables
 const DEFAULT_APP = API_AI_KEY ? API_AI(API_AI_KEY) : null;
 
+// Some constants
 const RETRY_ATTEMPTS = 3;
+const MAX_QUERY_STRING_LENGTH = 255;
 
 // Define the endpoint. This is run every HTTP request
 exports.endpoint = function(req, res) {
@@ -33,11 +35,20 @@ exports.endpoint = function(req, res) {
     }
   ];
 
+  let queryStringToSend = "";
+
+  // DialogFlow can only string less than 255 characters
+  if (query.queryString.length > MAX_QUERY_STRING_LENGTH) {
+    queryStringToSend = query.queryString.substring(0, MAX_QUERY_STRING_LENGTH);
+  } else {
+    queryStringToSend = query.queryString;
+  }
+
   // Use polly to retry DialogFlow requests until one works or else send error
   polly()
     .retry(RETRY_ATTEMPTS)
     .executeForPromise(function() {
-      return app.textRequest(query.queryString, {
+      return app.textRequest(queryStringToSend, {
         sessionId,
         contexts
       });
